@@ -3,14 +3,13 @@ version: '3.8'
 services:
   vprodb:
     build:
-      context: ./Dockerfiles/db
+      context: ./Docker-files/db
     image: pranjalbarnwal/vprofiledb
     container_name: vprodb
     ports:
       - "3306:3306"
     volumes:
       - vprodbdata:/var/lib/mysql
-      - logvolume01:/var/log
     environment:
       - MYSQL_ROOT_PASSWORD=vprodbpass
 
@@ -29,7 +28,7 @@ services:
 
   vproapp:
     build:
-      context: ./Dockerfiles/app
+      context: ./Docker-files/app
     image: pranjalbarnwal/vprofileapp
     container_name: vproapp
     ports:
@@ -39,7 +38,7 @@ services:
 
   vproweb:
     build:
-      context: ./Dockerfiles/web
+      context: ./Docker-files/web
     image: pranjalbarnwal/vprofileweb
     container_name: vproweb
     ports:
